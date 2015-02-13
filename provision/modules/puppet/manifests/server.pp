@@ -63,6 +63,16 @@ class puppet::server(
     notify  => Service[ 'puppetmaster' ],
   }
 
+  file { 'hiera.yaml':
+    path    => '/etc/puppet/hiera.yaml',
+    owner   => 'puppet',
+    group   => 'puppet',
+    mode    => '0644',
+    source  => 'puppet:///modules/puppet/hiera.yaml',
+    require => Package[ 'puppetmaster' ],
+    notify  => Service[ 'puppetmaster' ],
+  }
+  
   file { 'site.pp':
     path    => '/etc/puppet/manifests/site.pp',
     owner   => 'puppet',

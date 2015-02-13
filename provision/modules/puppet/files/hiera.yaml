@@ -1,7 +1,8 @@
 ---
 :backends:
   - yaml
-  - http
+  - json
+  
 :hierarchy:
   - "%{clientcert}"
   - "%{operatingsystem}"
@@ -9,8 +10,4 @@
   - global
 
 :yaml:
-# datadir is empty here, so hiera uses its defaults:
-# - /var/lib/hiera on *nix
-# - %CommonAppData%\PuppetLabs\hiera\var on Windows
-# When specifying a datadir, make sure the directory exists.
   :datadir: '/var/lib/hiera/'
